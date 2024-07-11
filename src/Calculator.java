@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Calculator {
     public static void main(String[] args) {
         int a = Integer.parseInt(args[1]);
@@ -16,19 +18,46 @@ public class Calculator {
         };
     };
 
-    static void sum(int a, int b) {
-        System.out.println(a + b);
+    public static void displayMenu() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Choose operation: ");
+        System.out.println("1. Sum");
+        System.out.println("2. Subtract");
+        System.out.println("3. Multiply");
+        System.out.println("4. Divide");
+        int operation = scanner.nextInt();
+
+        switch(operation) {
+            case 1:
+                handleUserInput();
+        }
+    }
+
+    public static void handleUserInput() {
+
+    }
+
+    static double sum(int a, int b) {
+        double sum = a + b;
+        System.out.println(sum);
+        return sum;
     };
 
-    static void subtract(int a, int b) {
-        System.out.println(a - b);
+    static double subtract(int a, int b) {
+        double subtract = a - b;
+        System.out.println(subtract);
+        return subtract;
     };
 
-    static void multiply(int a, int b) {
-        System.out.println(a * b);
+    static double multiply(int a, int b) {
+        double multiply = a * b;
+        System.out.println(multiply);
+        return multiply;
     };
 
-    static void divide(int a, int b) {
-        System.out.println(a / b);
+    static double divide(int a, int b) {
+        double divide = (double) a / b;
+        System.out.println(divide);
+        return divide;
     };
 };
