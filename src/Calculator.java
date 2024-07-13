@@ -1,63 +1,64 @@
 import java.util.*;
 
 public class Calculator {
-    public static void main(String[] args) {
-        int a = Integer.parseInt(args[1]);
-        int b = Integer.parseInt(args[2]);
-
-        if (args[0].equals("sum")) {
-            sum(a, b);
-        } else if (args[0].equals("subtract")) {
-            subtract(a, b);
-        } else if (args[0].equals(("multiply"))) {
-            multiply(a, b);
-        } else if (args[0].equals("divide")) {
-            divide(a, b);
-        } else {
-            System.out.println("Invalid input!");
-        };
-    };
+    static Scanner scanner = new Scanner(System.in);
 
     public static void displayMenu() {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Choose operation: ");
         System.out.println("1. Sum");
         System.out.println("2. Subtract");
         System.out.println("3. Multiply");
         System.out.println("4. Divide");
         int operation = scanner.nextInt();
+        handleUserInput(operation);
+    }
+    public static void handleUserInput(int operation) {
+        System.out.println("Enter first number: ");
+        double firstNumber = scanner.nextDouble();
+        System.out.println("Enter second number: ");
+        double secondNumber = scanner.nextDouble();
 
         switch(operation) {
             case 1:
-                handleUserInput();
+            sum(firstNumber, secondNumber);
+            break;
+            case 2:
+            subtract(firstNumber, secondNumber);
+            break;
+            case 3:
+            multiply(firstNumber, secondNumber);
+            break;
+            case 4:
+            divide(firstNumber, secondNumber);
+            break;
         }
     }
 
-    public static void handleUserInput() {
-
-    }
-
-    static double sum(int a, int b) {
+    static double sum(double a, double b) {
         double sum = a + b;
         System.out.println(sum);
         return sum;
-    };
+    }
 
-    static double subtract(int a, int b) {
+    static double subtract(double a, double b) {
         double subtract = a - b;
         System.out.println(subtract);
         return subtract;
-    };
+    }
 
-    static double multiply(int a, int b) {
+    static double multiply(double a, double b) {
         double multiply = a * b;
         System.out.println(multiply);
         return multiply;
-    };
+    }
 
-    static double divide(int a, int b) {
+    static double divide(double a, double b) {
         double divide = (double) a / b;
         System.out.println(divide);
         return divide;
-    };
-};
+    }
+
+    public static void main(String[] args) {
+        displayMenu();
+    }
+}
